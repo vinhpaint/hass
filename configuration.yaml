@@ -96,7 +96,7 @@ weather:
       - humidity
       - pressure
       - uv_index
-      
+
 camera:
   - platform: synology
     name: Camera trước
@@ -144,7 +144,7 @@ switch:
     mac: '34:EA:34:C1:B6:AF'
     type:  sp1
     friendly_name: 'Xiaomi Vacuum'
-	
+
   - platform: broadlink
     host: 192.168.2.6
     mac: '34:EA:34:C6:FC:E9'
@@ -222,7 +222,7 @@ group:
       - weather.dark_sky
       - vacuum.xiaomi_vacuum_cleaner
       - group.all_vacuum_cleaners
-      
+
 # Hien thi tab "Phong Khach"
   Living room:
     name: Phòng Khách
@@ -230,7 +230,7 @@ group:
     entities:
       - media_player.mibox3
       - media_player.samsung_tv_remote
-      
+
 
 # Hien thi tab "Phong Ngu"
   Bedroom:
@@ -261,7 +261,7 @@ group:
       - sensor.memory_usage_real
       - sensor.network_up
       - sensor.pyload
-  
+
   air_phong_ngu:
     name: Môi trường Phòng ngủ
     view: no
