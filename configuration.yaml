@@ -182,6 +182,7 @@ group:
     view: yes
     entities:
       - media_player.ua43j5500_ua43j5500
+      - group.air_phong_ngu
           
 # Hien thi tab "Bep"
   Kitchen:
@@ -204,4 +205,12 @@ group:
       - sensor.memory_usage_real
       - sensor.network_up
       - sensor.pyload
-
+  air_phong_ngu:
+    name: Môi trường Phòng ngủ
+    view: no
+    entities:
+      - sensor.broadlink_sensor_air_quality
+      - sensor.broadlink_sensor_humidity
+      - sensor.broadlink_sensor_light
+      - sensor.broadlink_sensor_noise
+      - sensor.broadlink_sensor_temperature
