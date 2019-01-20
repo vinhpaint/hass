@@ -107,12 +107,6 @@ camera:
     timeout: 15
     verify_ssl: False
 
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
-    waypoints: True
-        events_only: True
-
 #####################################  switch  ##########################################
 switch:
   - platform: broadlink
