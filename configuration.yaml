@@ -180,70 +180,6 @@ sensor:
       - pressure
       - uv_index
   
-  - platform: template
-    sensors:
-      weathertoday:
-        friendly_name: "Thời tiết hôm nay" 
-        value_template: >-
-          {% if is_state('sensor.dark_sky_icon', 'partly-cloudy-day') %}
-            Ngày trời ít mây
-          {% elif is_state('sensor.dark_sky_icon', 'clear-day') %}
-            Ngày trời trong xanh
-          {% elif is_state('sensor.dark_sky_icon', 'clear-night') %}
-            Đêm trời đẹp
-          {% elif is_state('sensor.dark_sky_icon', 'rain') %}
-            Trời mưa
-          {% elif is_state('sensor.dark_sky_icon', 'wind') %}
-            Gió nhiều
-          {% elif is_state('sensor.dark_sky_icon', 'cloudy') %}
-            Trời nhiều mây
-          {% elif is_state('sensor.dark_sky_icon', 'partly-cloudy-night') %}
-            Đêm trời nhiều mây
-          {% elif is_state('sensor.dark_sky_icon', 'fog') %}
-            Sương mù
-          {% elif is_state('sensor.dark_sky_nearest_storm_distance', 'unknown') %}
-            Không có cơn bão nào
-          {% else %}
-            ...
-          {% endif %}
-  - platform: template
-    sensors:
-      chatluongkhongkhi:
-        friendly_name: "Chất lượng không khí" 
-        value_template: >-
-          {% if is_state('sensor.broadlink_sensor_air_quality', '0') %}
-            Không khí trong sạch
-          {% elif is_state('sensor.broadlink_sensor_air_quality', '1') %}
-            Không khí không được sạch
-          {% elif is_state('sensor.broadlink_sensor_air_quality', '2') %}
-            Không khí có hại cho sức khỏe
-          {% endif %}
-        
-  - platform: template
-    sensors:
-      cuongdoanhsang:
-        friendly_name: "Cường độ ánh sáng" 
-        value_template: >-
-          {% if is_state('sensor.broadlink_sensor_light', '0') %}
-            Tối
-          {% elif is_state('sensor.broadlink_sensor_light', '1') %}
-            Thiếu ánh sáng
-          {% elif is_state('sensor.broadlink_sensor_light', '2') %}
-            Đầy đủ ánh sáng
-          {% endif %}
-  - platform: template
-    sensors:
-      tiengon:
-        friendly_name: "Tiếng ồn" 
-        value_template: >-
-          {% if is_state('sensor.broadlink_sensor_noise', '0') %}
-            Yên tĩnh
-          {% elif is_state('sensor.broadlink_sensor_noise', '1') %}
-            Hơi ồn
-          {% elif is_state('sensor.broadlink_sensor_noise', '2') %}
-            Quá ồn gây ảnh hưởng sức khỏe
-          {% endif %}
-
 ####################################  AUTOMATION  ##########################################
 automation: 
 
@@ -310,9 +246,8 @@ group:
     name: Môi trường Phòng ngủ
     view: no
     entities:
-      - sensor.chatluongkhongkhi
+      - sensor.broadlink_sensor_air_quality
       - sensor.broadlink_sensor_humidity
-      - sensor.cuongdoanhsang
-      - sensor.tiengon
+      - sensor.broadlink_sensor_light
+      - sensor.broadlink_sensor_noise
       - sensor.broadlink_sensor_temperature
-      - sensor.mold_indicator
