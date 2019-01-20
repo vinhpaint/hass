@@ -112,7 +112,8 @@ switch:
   - platform: broadlink
     host: 192.168.2.202
     mac: 'B4:43:0D:B6:0C:CE'
-    timeout: 15
+    type: rm
+	timeout: 15
     switches:
       # Will work on most Phillips TVs:
       tv_phillips:
@@ -123,6 +124,7 @@ switch:
   - platform: broadlink
     host: 192.168.2.236
     mac: '34:EA:34:C7:AA:FE'
+    type: rm_mini
     timeout: 15
     switches:
       # Will work on most Phillips TVs:
@@ -134,13 +136,13 @@ switch:
   - platform: broadlink
     host: 192.168.2.62
     mac: '34:EA:34:C1:AF:E7'
-    type:  sp3
+    type:  sp1
     friendly_name: 'TV Phòng khách'
 
   - platform: broadlink
     host: 192.168.2.4
     mac: '34:EA:34:C1:B6:AF'
-    type:  sp3
+    type:  sp1
     friendly_name: 'Xiaomi Vacuum'
 	
   - platform: broadlink
