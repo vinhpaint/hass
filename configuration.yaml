@@ -118,6 +118,33 @@ switch:
   - platform: broadlink
     host: 192.168.2.202
     mac: 'B4:43:0D:B6:0C:CE'
+ 
+ - platform: broadlink
+    host: 192.168.2.62
+    mac: '34:ea:34:c1:af:e7'
+    type: spmini2
+    friendly_name: 'TV Phòng khách'
+    scan_interval: 3
+ 
+ - platform: broadlink
+    host: 192.168.2.4
+    mac: '34:ea:34:c1:b6:af'
+    type: spmini2
+    friendly_name: 'Xiaomi Vacuum'
+    scan_interval: 3
+  
+  - platform: broadlink
+    host: 192.168.2.6
+    mac: '34:EA:34:c6:fc:e9'
+    type: mp1
+    scan_interval: 3
+    slots:
+      # friendly name of slots - optional
+      # if not set, slot name will be switch's friendly_name + 'slot {slot_index}'. e.g 'MP1 slot 1'
+      slot_1: 'Camera'
+      slot_2: 'TP-Link Router'
+      slot_3: 'Asus Router'
+      slot_4: 'Synology and S1C'
 
 #####################################  Sensors  ##########################################
 sensor:
