@@ -109,10 +109,6 @@ camera:
 
 #####################################  switch  ##########################################
 switch:
-  - platform: broadlink
-    host: 192.168.2.202
-    mac: 'B4:43:0D:B6:0C:CE'
- 
  - platform: broadlink
     host: 192.168.2.62
     mac: '34:ea:34:c1:af:e7'
