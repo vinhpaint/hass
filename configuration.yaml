@@ -118,8 +118,8 @@ switch:
       # Will work on most Phillips TVs:
       tv_phillips:
         friendly_name: "TV Phòng ngủ"
-        command_on: ''
-        command_off: ''
+        command_on: 'dfghryfhfgh'
+        command_off: 'fdghtrytrhgfhgfh'
 
   - platform: broadlink
     host: 192.168.2.236
@@ -130,19 +130,19 @@ switch:
       # Will work on most Phillips TVs:
       tv_phillips:
         friendly_name: "TV Phòng khách"
-        command_on: ''
-        command_off: ''
+        command_on: 'sgfdsfgdsertetergtdfg'
+        command_off: 'ểtrtergtdfhgfhjgfj'
 
   - platform: broadlink
     host: 192.168.2.62
     mac: '34:EA:34:C1:AF:E7'
-    type:  sp1
+    type:  spmini2
     friendly_name: 'TV Phòng khách'
 
   - platform: broadlink
     host: 192.168.2.4
     mac: '34:EA:34:C1:B6:AF'
-    type:  sp1
+    type:  spmini2
     friendly_name: 'Xiaomi Vacuum'
 
   - platform: broadlink
