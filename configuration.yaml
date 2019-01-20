@@ -61,49 +61,7 @@ vacuum:
     host: 192.168.2.89
     token: 374a447a57756c794255613274507566
 
-switch:
-  - platform: broadlink
-    host: 192.168.2.202
-    mac: 'B4:43:0D:B6:0C:CE'
-
-# Sensors
-sensor:
-  # Weather prediction
-  - platform: synologydsm
-    host: 192.168.2.76
-    username: admin
-    password: huynhth1b@chm@1@
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - network_up
-  - platform: broadlink
-    update_interval: 2
-    host: 192.168.2.5
-    mac: '34:EA:34:B2:C2:D1'
-    monitored_conditions:
-      - temperature
-      - humidity
-      - air_quality
-      - light
-      - noise
-  - platform: time_date
-    display_options:
-      - 'time'
-      - 'date'
-#  - platform: darksky
-#    api_key: 2194e8020b9d33f75c6cd4ef65b74bb5
-#    monitored_conditions:
-#      - summary
-#      - icon
-#      - nearest_storm_distance
-#      - apparent_temperature
-#      - temperature
-#      - humidity
-#      - pressure
-#      - uv_index
-
-      
+  
 media_player:
   - platform: samsungtv
     host: 192.168.2.238
@@ -148,9 +106,56 @@ camera:
     password: huynhth1b@chm@1@
     timeout: 15
     verify_ssl: False
+#####################################  switch  ##########################################
+switch:
+  - platform: broadlink
+    host: 192.168.2.202
+    mac: 'B4:43:0D:B6:0C:CE'
 
-automation: !include automations.yaml
+#####################################  Sensors  ##########################################
+sensor:
+  # Weather prediction
+  - platform: synologydsm
+    host: 192.168.2.76
+    username: admin
+    password: huynhth1b@chm@1@
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - network_up
+  - platform: broadlink
+    update_interval: 2
+    host: 192.168.2.5
+    mac: '34:EA:34:B2:C2:D1'
+    monitored_conditions:
+      - temperature
+      - humidity
+      - air_quality
+      - light
+      - noise
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+  - platform: darksky
+    api_key: 2194e8020b9d33f75c6cd4ef65b74bb5
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - apparent_temperature
+      - temperature
+      - humidity
+      - pressure
+      - uv_index
 
+####################################  AUTOMATION  ##########################################
+automation: 
+
+####################################  SCRIPTS  ##########################################
+script:
+
+####################################  GROUP  ############################################
 group:
 
 # Hien thi tab Trang chu
@@ -165,7 +170,7 @@ group:
       - camera.outdoor
       - weather.dark_sky
       - vacuum.xiaomi_vacuum_cleaner
-      
+      - group.all_vacuum_cleaners
       
 # Hien thi tab "Phong Khach"
   Living room:
@@ -205,6 +210,7 @@ group:
       - sensor.memory_usage_real
       - sensor.network_up
       - sensor.pyload
+  
   air_phong_ngu:
     name: Môi trường Phòng ngủ
     view: no
