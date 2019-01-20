@@ -62,9 +62,9 @@ vacuum:
     token: 374a447a57756c794255613274507566
 
 switch:
-#  - platform: broadlink
-#    host: 192.168.2.202
-#    mac: 'B4:43:0D:B6:0C:CE'
+  - platform: broadlink
+    host: 192.168.2.202
+    mac: 'B4:43:0D:B6:0C:CE'
 
 # Sensors
 sensor:
@@ -77,16 +77,16 @@ sensor:
       - cpu_total_load
       - memory_real_usage
       - network_up
-#  - platform: broadlink
-#    update_interval: 2
-#    host: 192.168.2.5
-#    mac: '34:EA:34:B2:C2:D1'
-#    monitored_conditions:
-#      - temperature
-#      - humidity
-#      - air_quality
-#      - light
-#      - noise
+  - platform: broadlink
+    update_interval: 2
+    host: 192.168.2.5
+    mac: '34:EA:34:B2:C2:D1'
+    monitored_conditions:
+      - temperature
+      - humidity
+      - air_quality
+      - light
+      - noise
   - platform: time_date
     display_options:
       - 'time'
@@ -102,7 +102,7 @@ sensor:
 #      - humidity
 #      - pressure
 #      - uv_index
-  - platform: pyload
+
       
 media_player:
   - platform: samsungtv
@@ -151,7 +151,6 @@ camera:
 
 automation: !include automations.yaml
 
-      
 group:
 
 # Hien thi tab Trang chu
