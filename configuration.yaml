@@ -61,7 +61,6 @@ vacuum:
     host: 192.168.2.89
     token: 374a447a57756c794255613274507566
 
-  
 media_player:
   - platform: samsungtv
     host: 192.168.2.238
@@ -109,9 +108,44 @@ camera:
 
 #####################################  switch  ##########################################
 switch:
+
+  - platform: broadlink
+    host: 192.168.2.202
+    mac: 'B4:43:0D:B6:0C:CE'
+    timeout: 15
+    switches:
+      # Will work on most Phillips TVs:
+      tv_phillips:
+        friendly_name: "TV Phòng ngủ"
+        command_on: ''
+        command_off: ''
+
+  - platform: broadlink
+    host: 192.168.2.236
+    mac: '34:EA:34:C7:AA:FE'
+    timeout: 15
+    switches:
+      # Will work on most Phillips TVs:
+      tv_phillips:
+        friendly_name: "TV Phòng khách"
+        command_on: ''
+        command_off: ''
+
+  - platform: broadlink
+    host: 192.168.2.62
+    mac: '34:EA:34:C1:AF:E7'
+    type:  sp3
+    friendly_name: 'TV Phòng khách'
+
+  - platform: broadlink
+    host: 192.168.2.4
+    mac: '34:EA:34:C1:B6:AF'
+    type:  sp3
+    friendly_name: 'Xiaomi Vacuum'
+	
   - platform: broadlink
     host: 192.168.2.6
-    mac: '34:EA:34:c6:fc:e9'
+    mac: '34:EA:34:C6:FC:E9'
     type: mp1
     scan_interval: 3
     slots:
@@ -121,6 +155,8 @@ switch:
       slot_2: 'TP-Link Router'
       slot_3: 'Asus Router'
       slot_4: 'Synology and S1C'
+
+
 
 #####################################  Sensors  ##########################################
 sensor:
