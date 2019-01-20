@@ -109,20 +109,6 @@ camera:
 
 #####################################  switch  ##########################################
 switch:
- - platform: broadlink
-    host: 192.168.2.62
-    mac: '34:ea:34:c1:af:e7'
-    type: spmini2
-    friendly_name: 'TV Phòng khách'
-    scan_interval: 3
- 
- - platform: broadlink
-    host: 192.168.2.4
-    mac: '34:ea:34:c1:b6:af'
-    type: spmini2
-    friendly_name: 'Xiaomi Vacuum'
-    scan_interval: 3
-  
   - platform: broadlink
     host: 192.168.2.6
     mac: '34:EA:34:c6:fc:e9'
