@@ -1,0 +1,208 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 9.80533
+  longitude: 105.49382
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Ho_Chi_Minh
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+ifttt:
+  key: o1_if8w55pZjskidhTaGM
+
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.2.89
+    token: 374a447a57756c794255613274507566
+
+switch:
+#  - platform: broadlink
+#    host: 192.168.2.202
+#    mac: 'B4:43:0D:B6:0C:CE'
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: synologydsm
+    host: 192.168.2.76
+    username: admin
+    password: huynhth1b@chm@1@
+    monitored_conditions:
+      - cpu_total_load
+      - memory_real_usage
+      - network_up
+#  - platform: broadlink
+#    update_interval: 2
+#    host: 192.168.2.5
+#    mac: '34:EA:34:B2:C2:D1'
+#    monitored_conditions:
+#      - temperature
+#      - humidity
+#      - air_quality
+#      - light
+#      - noise
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+#  - platform: darksky
+#    api_key: 2194e8020b9d33f75c6cd4ef65b74bb5
+#    monitored_conditions:
+#      - summary
+#      - icon
+#      - nearest_storm_distance
+#      - apparent_temperature
+#      - temperature
+#      - humidity
+#      - pressure
+#      - uv_index
+  - platform: pyload
+      
+media_player:
+  - platform: samsungtv
+    host: 192.168.2.238
+    host: 192.168.2.201
+
+# Text to speech
+tts:
+  - platform: google
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+    language: 'vi'
+
+tts_fpt:
+  api_key: '62adfa56dec846949c2610cc5923146c'
+  speed: '2'
+  url: 'http://192.168.2.76:8123'
+
+# Cloud
+cloud:
+
+weather:
+  - platform: darksky
+    api_key: 2194e8020b9d33f75c6cd4ef65b74bb5
+    forecast:
+      - 0
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - apparent_temperature
+      - temperature
+      - humidity
+      - pressure
+      - uv_index
+      
+camera:
+  - platform: synology
+    name: Camera trước
+    url: https://192.168.2.76:5001
+    username: admin
+    password: huynhth1b@chm@1@
+    timeout: 15
+    verify_ssl: False
+
+automation: !include automations.yaml
+
+      
+group:
+
+# Hien thi tab Trang chu
+  default_view:
+# Neu view = yes thi se hien thi group nay thanh 1 tab tren man hinh chinh.
+    view: yes
+    icon: mdi:home
+    entities:
+    # Cac nhom 'co view=no' hoac cong tac... nao se duoc hien thi trong Tab nay.
+      - group.time
+      - group.synology
+      - camera.outdoor
+      - weather.dark_sky
+      - vacuum.xiaomi_vacuum_cleaner
+      
+      
+# Hien thi tab "Phong Khach"
+  Living room:
+    name: Phòng Khách
+    view: yes
+    entities:
+      - media_player.mibox3
+      - media_player.samsung_tv_remote
+      
+
+# Hien thi tab "Phong Ngu"
+  Bedroom:
+    name: Phòng Ngủ
+    view: yes
+    entities:
+      - media_player.ua43j5500_ua43j5500
+          
+# Hien thi tab "Bep"
+  Kitchen:
+    name: Bếp
+    view: yes
+    entities:
+
+  time: 
+    name: Thời gian
+    view: no
+    entities:
+      - sensor.date
+      - sensor.time
+
+  synology:
+    name: Synology
+    view: no
+    entities:
+      - sensor.cpu_load_total
+      - sensor.memory_usage_real
+      - sensor.network_up
+      - sensor.pyload
+
